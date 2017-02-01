@@ -22,12 +22,8 @@ export default class NativeBase extends Component {
   constructor() {
     super();
 
-    this.state
-  }
-
-  render() {
-
-      const list = [
+    this.state = {
+      'list' : [
           {
             name: 'Amy Farha',
             avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -38,12 +34,18 @@ export default class NativeBase extends Component {
             avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
             subtitle: 'Vice Chairman'
           },
-        ]    
+        ] 
+    };
+  }
+
+  render() {
+    component = this;
+
     return (
       <View>
         <List containerStyle={{marginBottom: 20}}>
           {
-            list.map((l, i) => (
+            component.state.list.map((l, i) => (
               <ListItem
                 roundAvatar
                 avatar={{uri:l.avatar_url}}

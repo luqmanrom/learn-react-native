@@ -12,24 +12,48 @@ import {
   View
 } from 'react-native';
 
-import { Button } from 'react-native-elements'
+import { Button } from 'react-native-elements';
+
+import { List, ListItem } from 'react-native-elements';
+
 
 export default class NativeBase extends Component {
+
+  constructor() {
+    super();
+
+    this.state
+  }
+
   render() {
+
+      const list = [
+          {
+            name: 'Amy Farha',
+            avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+            subtitle: 'Vice President'
+          },
+          {
+            name: 'Chris Jackson',
+            avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+            subtitle: 'Vice Chairman'
+          },
+        ]    
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native, Luqman!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <Button
-          title='BUTTON' />        
+      <View>
+        <List containerStyle={{marginBottom: 20}}>
+          {
+            list.map((l, i) => (
+              <ListItem
+                roundAvatar
+                avatar={{uri:l.avatar_url}}
+                key={i}
+                title={l.name}
+              />
+            ))
+          }
+        </List>       
+
       </View>
     );
   }
